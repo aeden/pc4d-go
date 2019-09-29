@@ -9,10 +9,26 @@ The primary purposes of cryptography are:
 - Non-repudiation
 - Authentication
 
-This repository is divided into separate subdirectories where each subdirectory maps to a particular purpose of cryptography.
-
 ## Examples
 
 To build the examples, run `make`
 
 Examples are built into the `./bin` directory
+
+### Confidentiality
+
+Symmetric examples: `cmd/encrypt` & `cmd/decrypt`
+Asymmetric examples: `cmd/pkencrypt` & `cmd/pkdecrypt`
+
+### Integrity
+
+Hash example:   `cmd/hash`
+Asymmetric example: `cmd/pksign` & `cmd/pkverify`
+
+### Non-repudiation
+
+Asymmetric examples: `pksign` & `pkverify`
+
+### Authentication
+
+TBD

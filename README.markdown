@@ -18,11 +18,13 @@ Examples are built into the `./bin` directory
 ### Confidentiality
 
 Symmetric examples: `cmd/encrypt` & `cmd/decrypt`
+
 Asymmetric examples: `cmd/pkencrypt` & `cmd/pkdecrypt`
 
 ### Integrity
 
 Hash example:   `cmd/hash`
+
 Asymmetric example: `cmd/pksign` & `cmd/pkverify`
 
 ### Non-repudiation

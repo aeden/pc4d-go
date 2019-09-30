@@ -2,12 +2,13 @@ package main
 
 import (
 	"crypto/rand"
+	"encoding/base64"
 	"encoding/hex"
 	"fmt"
 	"log"
 	"os"
 
-	"golang.org/x/crypto/ed25519"
+	"golang.org/x/crypto/nacl/sign"
 )
 
 func main() {
@@ -18,13 +19,13 @@ func main() {
 
 	message := []byte(os.Args[1])
 
-	publicKey, privateKey, err := ed25519.GenerateKey(rand.Reader)
+	publicKey, privateKey, err := sign.GenerateKey(rand.Reader)
 	if err != nil {
 		panic(err)
 	}
-	log.Printf("Public key: %v", hex.EncodeToString(publicKey))
-	log.Printf("Private key: %v", hex.EncodeToString(privateKey))
+	log.Printf("Public key: %v", hex.EncodeToString(publicKey[:]))
+	log.Printf("Private key: %v", hex.EncodeToString(privateKey[:]))
 
-	signature := ed25519.Sign(privateKey, message)
-	log.Printf("Signature: %v", hex.EncodeToString(signature))
+	signature := sign.Sign(nil, message, privateKey)
+	log.Printf("Signature: %v", base64.StdEncoding.EncodeToString(signature[:]))
 }

@@ -1,33 +1,35 @@
 package main
 
 import (
+	"encoding/base64"
 	"encoding/hex"
 	"fmt"
 	"log"
 	"os"
 
-	"golang.org/x/crypto/ed25519"
+	"golang.org/x/crypto/nacl/sign"
 )
 
 func main() {
-	if len(os.Args) != 4 {
-		fmt.Printf("Usage: %v publicKey signature message\n\tpublicKey: hex-encoded public key\n\tsignature: hex-encoded signature\n\tmessage: message string\n", os.Args[0])
+	if len(os.Args) != 3 {
+		fmt.Printf("Usage: %v publicKey signedMessage\n\tpublicKey: hex-encoded public key\n\tsignedMessage: base64-encoded signed message\n", os.Args[0])
 		os.Exit(1)
 	}
 
-	publicKey, err := hex.DecodeString(os.Args[1])
+	var publicKey [32]byte
+
+	publicKeyArg, err := hex.DecodeString(os.Args[1])
+	if err != nil {
+		panic(err)
+	}
+	copy(publicKey[:], publicKeyArg)
+
+	message, err := base64.StdEncoding.DecodeString(os.Args[2])
 	if err != nil {
 		panic(err)
 	}
 
-	signature, err := hex.DecodeString(os.Args[2])
-	if err != nil {
-		panic(err)
-	}
-
-	message := []byte(os.Args[3])
-
-	ok := ed25519.Verify(publicKey, message, signature)
+	_, ok := sign.Open(nil, message, &publicKey)
 	if ok {
 		log.Printf("Verified")
 	} else {

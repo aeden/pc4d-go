@@ -17,15 +17,15 @@ Examples are built into the `./bin` directory
 
 ### Confidentiality
 
-Symmetric examples: `cmd/encrypt` & `cmd/decrypt`
+Symmetric examples: `encrypt` & `decrypt`
 
-Asymmetric examples: `cmd/pkencrypt` & `cmd/pkdecrypt`
+Asymmetric examples: `pkencrypt` & `pkdecrypt`
 
 ### Integrity
 
-Hash example:   `cmd/hash`
+Hash example: `hash`
 
-Asymmetric example: `cmd/pksign` & `cmd/pkverify`
+Asymmetric example: `pksign` & `pkverify`
 
 ### Non-repudiation
 
@@ -33,4 +33,4 @@ Asymmetric examples: `pksign` & `pkverify`
 
 ### Authentication
 
-TBD
+Symmetric example: `auth` & `verify`

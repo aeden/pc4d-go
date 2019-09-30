@@ -6,3 +6,5 @@ build:
 	go build -o bin/hash cmd/hash/hash.go
 	go build -o bin/pksign cmd/pksign/pksign.go
 	go build -o bin/pkverify cmd/pkverify/pkverify.go
+	go build -o bin/auth cmd/auth/auth.go
+	go build -o bin/verify cmd/verify/verify.go

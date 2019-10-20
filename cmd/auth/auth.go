@@ -27,4 +27,6 @@ func main() {
 
 	digest := auth.Sum(message, &key)
 	log.Printf("Digest: %v", hex.EncodeToString(digest[:]))
+
+	fmt.Printf("\n\nVerify with: bin/verify %v %v \"%v\"\n", hex.EncodeToString(key[:]), hex.EncodeToString(digest[:]), os.Args[1])
 }

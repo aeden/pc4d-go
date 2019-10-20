@@ -28,4 +28,6 @@ func main() {
 
 	signature := sign.Sign(nil, message, privateKey)
 	log.Printf("Signature: %v", base64.StdEncoding.EncodeToString(signature[:]))
+
+	fmt.Printf("\nVerify with: bin/pkverify %v %v\n\n", hex.EncodeToString(publicKey[:]), base64.StdEncoding.EncodeToString(signature[:]))
 }

@@ -42,4 +42,7 @@ func main() {
 	// The nonce is prefixed to the encrypted data. The correct nonce must be used to decrypt the encrypted data
 	box := box.Seal(nonce[:], message, &nonce, recipientPublicKey, senderPrivateKey)
 	log.Printf("Box: %v", base64.StdEncoding.EncodeToString(box))
+
+	fmt.Printf("\nDecrypt with: bin/pkdecrypt %v %v %v\n\n", base64.StdEncoding.EncodeToString(senderPublicKey[:]), base64.StdEncoding.EncodeToString(recipientPrivateKey[:]), base64.StdEncoding.EncodeToString(box))
+
 }

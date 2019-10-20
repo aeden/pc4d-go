@@ -23,7 +23,7 @@ Symmetric examples: `encrypt` & `decrypt`
 
 Asymmetric examples: `pkencrypt` & `pkdecrypt`
 
-Run either `encrypt` or `pkencrypt` with the appropirate arguments and the final output should show the command required to decrypt.
+Run either `encrypt` or `pkencrypt` with the appropriate arguments and the final output should show the command required to decrypt.
 
 ### Integrity
 
@@ -33,13 +33,13 @@ Run `hash` with the same input argument and you should get the same output argum
 
 Asymmetric example: `pksign` & `pkverify`
 
-Run `pksign` with the appropirate arguments and the final output should show the command required to verify.
+Run `pksign` with the appropriate arguments and the final output should show the command required to verify.
 
 ### Non-repudiation
 
 Asymmetric examples: `pksign` & `pkverify`
 
-Run `pksign` with the appropirate arguments and the final output should show the command required to verify.
+Run `pksign` with the appropriate arguments and the final output should show the command required to verify.
 
 ### Authentication
 
